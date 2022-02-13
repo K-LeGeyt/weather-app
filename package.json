@@ -38,6 +38,7 @@
     ]
   },
   "dependencies": {
+    "dotenv": "^16.0.0",
     "@vscode/sqlite3": "^5.0.7",
     "express": "^4.17.1",
     "knex": "^1.0.2",
@@ -54,7 +55,6 @@
     "@testing-library/react": "11.2.2",
     "babel-loader": "^8.2.1",
     "css-loader": "^5.0.1",
-    "dotenv": "^16.0.0",
     "eslint": "7.9.0",
     "eslint-config-eda": "0.1.4",
     "jest": "^26.6.3",
