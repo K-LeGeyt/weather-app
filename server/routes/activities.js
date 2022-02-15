@@ -11,7 +11,7 @@ router.get('/:type', (req, res) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json({ message: 'Somthing went wrong' })
+      res.status(500).json({ message: 'Something went wrong' })
     })
 })
 

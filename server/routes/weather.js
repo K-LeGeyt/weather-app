@@ -11,9 +11,8 @@ router.get('/:city', (req, res) => {
     .then(response => {
       return res.json(response.body)
     })
-    .catch((err) => {
-      res.status(500).send(err.message)
-    })
+  console.log(err)
+  res.status(500).json({ message: 'Something went wrong' })
 })
 
 // forecast api
