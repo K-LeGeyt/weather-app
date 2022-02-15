@@ -11,8 +11,10 @@ router.get('/:city', (req, res) => {
     .then(response => {
       return res.json(response.body)
     })
-  console.log(err)
-  res.status(500).json({ message: 'Something went wrong' })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
 })
 
 // forecast api
@@ -22,8 +24,9 @@ router.get('/:city/forecast', (req, res) => {
     .then(response => {
       return res.json(response.body)
     })
-    .catch((err) => {
-      res.status(500).send(err.message)
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
     })
 })
 
