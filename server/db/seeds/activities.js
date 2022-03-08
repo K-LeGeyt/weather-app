@@ -1,13 +1,12 @@
-
 exports.seed = function (knex) {
   // Deletes ALL existing entries
   return knex('activities').del()
     .then(function () {
       // Inserts seed entries
       return knex('activities').insert([
-        { id: 1, activity: 'swimming', type: 'outdoor' },
+        { id: 1, activity: 'walking', type: 'outdoor' },
         { id: 2, activity: 'running', type: 'outdoor' },
-        { id: 3, activity: 'go outside', type: 'outdoor' },
+        { id: 3, activity: 'outdoor sports', type: 'outdoor' },
         { id: 4, activity: 'take an umbrella', type: 'indoor' },
         { id: 5, activity: 'do some baking', type: 'indoor' },
         { id: 6, activity: 'grocery shopping', type: 'indoor' },

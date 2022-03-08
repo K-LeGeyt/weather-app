@@ -1,0 +1,109 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap);
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  background-image: url("weather_img.jpg");
+  background-size: cover;
+  background-position-x: center;
+}
+
+header {
+  color: white;
+  margin-bottom: 1.5em;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 2.5em;
+}
+
+h3 {
+  padding-top: 20px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+h4 {
+  margin-top: 0;
+}
+
+.app {
+  background-color: white;
+  max-width: 75%;
+  min-height: 710px;
+  margin: 0 auto;
+  padding: 50px;
+  border-radius: 30px;
+}
+
+/* Form Styling */
+
+input,
+button {
+  border: none;
+  padding: 14px;
+  border-radius: 3px;
+  margin: 10px;
+}
+
+input {
+  border: 2px solid lightgray;
+  margin: 5px 0 10px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: lightblue;
+  border: 2px solid lightblue;
+  font-size: 1rem;
+  box-shadow: 0 5px 20px lightgray;
+  transition: box-shadow .3s ease-in-out;
+}
+
+button:hover {
+  box-shadow: none;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.activities, .clothes {
+  flex-basis: 40%;
+  background-color: lightblue;
+  margin-bottom: 1.5em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .activities, .clothes {
+    flex-basis: 100%;
+  }
+}
+
+.activities ul {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.forecast {
+  border: 1px solid lightgray;
+  background-color: lightgray;
+  border-radius: 20px;
+}
+
+.day1, .day2 {
+  display: inline-block;
+  padding: 20px;
+  width: 40%;
+}

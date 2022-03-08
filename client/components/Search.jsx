@@ -3,16 +3,12 @@ import { useDispatch } from 'react-redux'
 
 import { fetchCityForecast, fetchCityWeather } from '../actions'
 
-export default function SearchBox (props) {
-  // const callback = props.handleSearchButton
+export default function SearchBox () {
   const [formData, setFormData] = useState({
     city: ''
   })
 
   const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch(fetchCityWeather(e.target.value))
-  // }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -29,7 +25,7 @@ export default function SearchBox (props) {
   }
 
   return (
-    <div className='col col-sm-3'>
+    <div className='city-form'>
       <form onSubmit={handleSubmit}>
         <input name='city'
           className='form-control'

@@ -38,10 +38,11 @@
     ]
   },
   "dependencies": {
+    "dotenv": "^16.0.0",
     "@vscode/sqlite3": "^5.0.7",
     "express": "^4.17.1",
     "knex": "^1.0.2",
-    "pg": "^8.5.1",
+    "pg": "^8.7.3",
     "superagent": "^6.1.0"
   },
   "devDependencies": {
@@ -54,7 +55,6 @@
     "@testing-library/react": "11.2.2",
     "babel-loader": "^8.2.1",
     "css-loader": "^5.0.1",
-    "dotenv": "^16.0.0",
     "eslint": "7.9.0",
     "eslint-config-eda": "0.1.4",
     "jest": "^26.6.3",
@@ -67,11 +67,11 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "sass": "^1.29.0",
-    "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "supertest": "6.0.1",
-    "webpack": "5.9.0",
     "webpack-cli": "4.2.0"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
