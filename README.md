@@ -19,4 +19,4 @@ You can find the server running on [http://localhost:3000](http://localhost:3000
 
 ## Details
 
-This Weather App is built from the [https://www.weatherapi.com/](Weather API)
+This Weather App is built from the [https://www.weatherapi.com/](Weather-API)
