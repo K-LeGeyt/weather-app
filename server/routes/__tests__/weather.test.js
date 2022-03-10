@@ -19,4 +19,23 @@ describe('GET /api/v1/weather/:city', () => {
         return null
       })
   })
+  it('returns 500 if error', () => {
+    const scope = nock('http://api.weatherapi.com/v1')
+      .get('/current.json')
+      .query(true)
+      .reply(500)
+    jest.spyOn(console, 'log')
+    console.log.mockImplementation(() => {})
+    expect.assertions(3)
+    return request(server)
+      .get('/api/v1/weather/philly')
+      .then((response) => {
+        expect(response.status).toEqual(500)
+        expect(response.text).toContain('Internal Server Error')
+        expect(console.log).toHaveBeenCalled()
+        console.log.mockRestore()
+        scope.done()
+        return null
+      })
+  })
 })
