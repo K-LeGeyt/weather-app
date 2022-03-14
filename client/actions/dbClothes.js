@@ -39,7 +39,7 @@ export function fetchClothes (temp) {
   }
 }
 
-function getCondition (temp) {
+export function getCondition (temp) {
   if (temp < 0) { return 'below freezing' }
   if (temp >= 0 && temp <= 9) { return 'freezing' }
   if (temp >= 10 && temp <= 14) { return 'chilly' }
