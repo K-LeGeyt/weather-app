@@ -2,7 +2,6 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { render, screen } from '@testing-library/react'
 
-import { fetchActivities } from '../../actions/dbActions'
 import Activities from '../Activities'
 
 jest.mock('../../actions/dbActions')
@@ -16,18 +15,15 @@ describe('<Activities />', () => {
         activities: [
           {
             id: 1,
-            activity: 'swim',
-            type: 'outdoor'
+            activity: 'swim'
           },
           {
             id: 2,
-            activity: 'bike',
-            type: 'outdoor'
+            activity: 'bike'
           },
           {
             id: 3,
-            activity: 'run',
-            type: 'outdoor'
+            activity: 'run'
           }
         ]
       }
