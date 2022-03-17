@@ -26,7 +26,7 @@ describe('<App />', () => {
     getState: jest.fn()
   }
 
-  it('has', () => {
+  it('renders the App with a class of app', () => {
     fakeStore.getState.mockReturnValue({
       weather: {}
     })
