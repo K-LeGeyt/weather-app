@@ -13,10 +13,6 @@ describe('<Forecast />', () => {
     getState: jest.fn()
   }
 
-  beforeEach(() => {
-    jest.resetAllMocks()
-  })
-
   it('renders a h3 element and forecast condition', () => {
     fakeStore.getState.mockReturnValue({
       forecast: {
