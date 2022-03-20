@@ -14,7 +14,7 @@ export default function Forecast () {
           <p>{day1.date}</p>
           <p>{day1.day.avgtemp_c} °C</p>
           <img src={day1.day.condition.icon} />
-          <p>{day1.day.condition.text}</p>
+          <p data-testid='condition'>{day1.day.condition.text}</p>
         </div>
         <div className='day2'>
           <p>{day2.date}</p>
