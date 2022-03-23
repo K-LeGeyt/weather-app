@@ -1,8 +1,8 @@
 import { getActivities } from '../apis/actClient'
+import { setError } from './errMessage'
 
 export const SET_ACT_PENDING = 'SET_ACT_PENDING'
 export const SET_ACT_SUCCESS = 'SET_ACT_SUCCESS'
-export const SET_ERROR = 'SET_ERROR'
 
 export function setActivities (activities) {
   return {
@@ -14,13 +14,6 @@ export function setActivities (activities) {
 export function setActsPending () {
   return {
     type: SET_ACT_PENDING
-  }
-}
-
-export function setError (errMessage) {
-  return {
-    type: SET_ERROR,
-    errMessage
   }
 }
 

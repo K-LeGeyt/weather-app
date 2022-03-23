@@ -1,8 +1,8 @@
 import { getClothes } from '../apis/clothesClient'
+import { setError } from './errMessage'
 
 export const SET_CLOTHES_PENDING = 'SET_CLOTHES_PENDING'
 export const SET_CLOTHES_SUCCESS = 'SET_CLOTHES_SUCCESS'
-export const SET_ERROR = 'SET_ERROR'
 
 export function setClothes (clothes) {
   return {
@@ -14,13 +14,6 @@ export function setClothes (clothes) {
 export function setClothesPending () {
   return {
     type: SET_CLOTHES_PENDING
-  }
-}
-
-export function setError (errMessage) {
-  return {
-    type: SET_ERROR,
-    errMessage
   }
 }
 
