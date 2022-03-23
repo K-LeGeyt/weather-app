@@ -1,4 +1,4 @@
-import { SET_ERROR } from '../actions/dbActions'
+import { SET_ERROR } from '../actions/errMessage'
 
 const initialState = null
 
