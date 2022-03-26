@@ -1,8 +1,8 @@
 import {
   SET_CLOTHES_PENDING,
-  SET_CLOTHES_SUCCESS,
-  SET_ERROR
+  SET_CLOTHES_SUCCESS
 } from '../actions/dbClothes'
+import { SET_ERROR } from '../actions/errMessage'
 
 const initialState = false
 

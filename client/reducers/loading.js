@@ -1,8 +1,8 @@
 import {
   SET_ACT_PENDING,
-  SET_ACT_SUCCESS,
-  SET_ERROR
+  SET_ACT_SUCCESS
 } from '../actions/dbActions'
+import { SET_ERROR } from '../actions/errMessage'
 
 const initialState = false
 
