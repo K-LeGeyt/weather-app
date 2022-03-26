@@ -14,6 +14,12 @@ module.exports = {
     connection: {
       filename: ':memory:'
     },
+    migrations: {
+      directory: path.resolve('server/db/migrations')
+    },
+    seeds: {
+      directory: path.resolve('server/db/seeds')
+    },
     useNullAsDefault: true
   },
 
