@@ -18,3 +18,16 @@ describe('getActivities', () => {
       })
   })
 })
+
+describe('getClothes', () => {
+  it('returns an array of one clothes object based on weather condition', () => {
+    expect.assertions(3)
+    return db.getClothes('chilly', testDb)
+      .then(clothes => {
+        expect(clothes).toHaveLength(1)
+        expect(clothes[0].id).toEqual(4)
+        expect(clothes[0].layers).toEqual('2-3 layers')
+        return null
+      })
+  })
+})
