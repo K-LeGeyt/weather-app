@@ -15,7 +15,7 @@ export default function Clothes (props) {
     <div className='clothes'>
       <h3>What to Wear</h3>
       {clothes.length > 0 &&
-      <p>
+      <p data-testid='clothes'>
        It&apos;s <strong>{clothes[0].condition}</strong> out there so wear <strong>{clothes[0].layers}</strong> of clothing.
       </p>}
     </div>
