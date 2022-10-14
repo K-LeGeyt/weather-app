@@ -14,8 +14,12 @@ describe('<WaitIndicator />', () => {
   it('renders loading paragraph', () => {
     fakeStore.getState.mockReturnValue({ loading: true })
 
-    render(<Provider store={fakeStore}><WaitIndicator /></Provider>)
+    render(
+      <Provider store={fakeStore}>
+        <WaitIndicator />
+      </Provider>
+    )
 
-    expect(screen.getAllByText('Loading...')[0].outerHTML).toContain('p')
+    expect(screen.getAllByText(/Fetching/)[0].outerHTML).toContain('p')
   })
 })
