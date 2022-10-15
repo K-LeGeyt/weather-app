@@ -1,9 +1,6 @@
 import { SET_WEATHER } from '../actions'
 
-const initialState = {
-  location: { name: '' },
-  current: { condition: { text: '' } }
-}
+const initialState = null
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

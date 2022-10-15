@@ -7,26 +7,34 @@ const router = express.Router()
 // setup for city parameters
 router.get('/:city', (req, res) => {
   const city = req.params.city
-  return request.get(`http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}&aqi=no`)
-    .then(response => {
-      return res.json(response.body)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json({ message: 'Internal Server Error' })
+  request
+    .get(
+      `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}&aqi=no`
+    )
+    .end((err, result) => {
+      if (err) {
+        console.log(err)
+        res.status(500).send(err.message)
+      } else {
+        res.json(result.body)
+      }
     })
 })
 
 // forecast api
 router.get('/:city/forecast', (req, res) => {
   const city = req.params.city
-  return request.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${city}&days=3&aqi=no&alerts=no`)
-    .then(response => {
-      return res.json(response.body)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json({ message: 'Internal Server Error' })
+  return request
+    .get(
+      `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${city}&days=3&aqi=no&alerts=no`
+    )
+    .end((err, result) => {
+      if (err) {
+        console.log(err)
+        res.status(500).send(err.message)
+      } else {
+        res.json(result.body)
+      }
     })
 })
 

@@ -1,21 +1,33 @@
-import { SET_FORECAST } from '../actions'
+import {
+  SET_LOADING_FORECAST,
+  SET_FORECAST_SUCCESS,
+  SET_ERROR_FORECAST
+} from '../actions'
 
 const initialState = {
-  location: { name: '' },
-  current: { condition: { text: '' } },
-  forecast: {
-    forecastday: [
-      { date: '', day: { avgtemp_c: 0, condition: { text: '' } } },
-      { date: '', day: { avgtemp_c: 0, condition: { text: '' } } },
-      { date: '', day: { avgtemp_c: 0, condition: { text: '' } } }
-    ]
-  }
+  forecast: null,
+  loading: true,
+  error: null
 }
 
 const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case SET_FORECAST:
-      return action.forecast
+  const { type, payload } = action
+
+  switch (type) {
+    case SET_LOADING_FORECAST:
+      return { ...state, loading: true, error: null }
+
+    case SET_FORECAST_SUCCESS:
+      return {
+        ...state,
+        forecast: payload.forecast,
+        loading: false,
+        error: null
+      }
+
+    case SET_ERROR_FORECAST:
+      return { ...state, loading: false, error: payload.error }
+
     default:
       return state
   }
