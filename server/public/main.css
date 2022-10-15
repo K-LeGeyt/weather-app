@@ -9,6 +9,7 @@ body {
   background-image: url("weather_img.jpg");
   background-size: cover;
   background-position-x: center;
+  background-attachment: fixed;
 }
 
 header {
@@ -34,7 +35,6 @@ h4 {
 .app {
   background-color: white;
   max-width: 75%;
-  min-height: 710px;
   margin: 0 auto;
   padding: 50px;
   border-radius: 30px;
@@ -75,7 +75,7 @@ button:hover {
   justify-content: space-between;
 }
 
-.activities, .clothes {
+.activities, .clothes, .loader {
   flex-basis: 40%;
   background-color: lightblue;
   margin-bottom: 1.5em;
@@ -84,7 +84,7 @@ button:hover {
 }
 
 @media screen and (max-width: 600px) {
-  .activities, .clothes {
+  .activities, .clothes, .loader {
     flex-basis: 100%;
   }
 }
@@ -100,10 +100,15 @@ button:hover {
   border: 1px solid lightgray;
   background-color: lightgray;
   border-radius: 20px;
+  padding: 20px;
 }
 
 .day1, .day2 {
   display: inline-block;
   padding: 20px;
   width: 40%;
+}
+
+.error {
+  color: red;
 }

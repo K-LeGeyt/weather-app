@@ -1,11 +1,33 @@
-import { SET_CLOTHES_SUCCESS } from '../actions/dbClothes'
+import {
+  SET_CLOTHES_PENDING,
+  SET_CLOTHES_SUCCESS,
+  SET_CLOTHES_ERROR
+} from '../actions/dbClothes'
 
-const initialState = [{ id: 0, layers: '', condition: '' }]
+const initialState = {
+  clothes: {},
+  loading: true,
+  error: null
+}
 
 const reducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action
+
+  switch (type) {
+    case SET_CLOTHES_PENDING:
+      return { ...state, loading: true, error: null }
+
     case SET_CLOTHES_SUCCESS:
-      return action.clothes
+      return {
+        ...state,
+        clothes: payload.clothes,
+        loading: false,
+        error: null
+      }
+
+    case SET_CLOTHES_ERROR:
+      return { ...state, loading: false, error: payload.error }
+
     default:
       return state
   }
