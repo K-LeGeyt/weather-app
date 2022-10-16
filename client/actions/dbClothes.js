@@ -47,20 +47,23 @@ export function getCondition(temp) {
   if (temp < 0) {
     return 'below freezing'
   }
-  if (temp >= 0 && temp <= 9) {
+  if (temp >= 0 && temp < 10) {
     return 'freezing'
   }
-  if (temp >= 10 && temp <= 14) {
+  if (temp >= 10 && temp < 15) {
     return 'chilly'
   }
-  if (temp >= 15 && temp <= 18) {
+  if (temp >= 15 && temp < 19) {
     return 'moderate'
   }
-  if (temp >= 19 && temp <= 25) {
+  if (temp >= 19 && temp < 25) {
     return 'pleasant'
   }
-  if (temp >= 25 && temp <= 40) {
+  if (temp >= 25 && temp < 40) {
     return 'hot'
+  }
+  if (temp >= 40) {
+    return 'too hot'
   }
   return null
 }

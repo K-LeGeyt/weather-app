@@ -24,8 +24,8 @@ export default function Clothes(props) {
         </>
       ) : (
         <p data-testid="clothes">
-          It&apos;s <strong>{clothes.condition}</strong> out there so wear{' '}
-          <strong>{clothes.layers}</strong> of clothing.
+          It&apos;s <strong>{clothes?.condition}</strong> out there so wear{' '}
+          <strong>{clothes?.layers}</strong> of clothing.
         </p>
       )}
     </div>
