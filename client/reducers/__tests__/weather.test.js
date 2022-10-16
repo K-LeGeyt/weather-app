@@ -3,12 +3,10 @@ import reducer from '../weather'
 import { setWeather } from '../../actions'
 
 describe('weather reducer', () => {
-  it('sets an object as initial state', () => {
+  it('sets initial state as null', () => {
     const state = reducer(undefined, { type: 'INIT' })
-    expect(state).toEqual({
-      location: { name: '' },
-      current: { condition: { text: '' } }
-    })
+
+    expect(state).toBeNull()
   })
 
   it('replaces state with SET_WEATHER', () => {

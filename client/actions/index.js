@@ -17,7 +17,7 @@ export function setLoading() {
 export function setWeather(weather) {
   return {
     type: SET_WEATHER,
-    weather
+    payload: { weather }
   }
 }
 

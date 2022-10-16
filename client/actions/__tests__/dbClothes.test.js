@@ -8,29 +8,31 @@ beforeEach(() => jest.clearAllMocks())
 
 describe('fetchClothes', () => {
   it('dispatches clothes action', () => {
-    getClothes.mockReturnValue(Promise.resolve([{ layers: 'grow fur', condition: 'below freezing' }]))
+    getClothes.mockReturnValue(
+      Promise.resolve([{ layers: 'grow fur', condition: 'below freezing' }])
+    )
 
     expect.assertions(4)
-    return fetchClothes(-10)(fakeDispatch)
-      .then(() => {
-        expect(fakeDispatch).toHaveBeenCalledTimes(2)
-        expect(fakeDispatch.mock.calls[0][0].type).toEqual('SET_CLOTHES_PENDING')
-        expect(fakeDispatch.mock.calls[1][0].type).toEqual('SET_CLOTHES_SUCCESS')
-        expect(fakeDispatch.mock.calls[1][0].clothes).toEqual([{ layers: 'grow fur', condition: 'below freezing' }])
-        return null
-      })
+    return fetchClothes(-10)(fakeDispatch).then(() => {
+      expect(fakeDispatch).toHaveBeenCalledTimes(2)
+      expect(fakeDispatch.mock.calls[0][0].type).toEqual('SET_CLOTHES_PENDING')
+      expect(fakeDispatch.mock.calls[1][0].type).toEqual('SET_CLOTHES_SUCCESS')
+      expect(fakeDispatch.mock.calls[1][0].payload.clothes).toEqual([
+        { layers: 'grow fur', condition: 'below freezing' }
+      ])
+      return null
+    })
   })
 
   it('sets error on failure', () => {
     getClothes.mockReturnValue(Promise.reject(new Error('Error')))
 
     expect.assertions(2)
-    return fetchClothes()(fakeDispatch)
-      .then(() => {
-        expect(fakeDispatch.mock.calls[1][0].type).toEqual('SET_ERROR')
-        expect(fakeDispatch.mock.calls[1][0].errMessage).toEqual('Error')
-        return null
-      })
+    return fetchClothes()(fakeDispatch).then(() => {
+      expect(fakeDispatch.mock.calls[1][0].type).toEqual('SET_CLOTHES_ERROR')
+      expect(fakeDispatch.mock.calls[1][0].payload.error).toEqual('Error')
+      return null
+    })
   })
 })
 

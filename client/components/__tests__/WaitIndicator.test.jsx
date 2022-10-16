@@ -22,4 +22,15 @@ describe('<WaitIndicator />', () => {
 
     expect(screen.getAllByText(/Fetching/)[0].outerHTML).toContain('p')
   })
+  it('renders nothing when loading is finished', () => {
+    fakeStore.getState.mockReturnValue({ loading: false })
+
+    render(
+      <Provider store={fakeStore}>
+        <WaitIndicator />
+      </Provider>
+    )
+
+    expect(screen.queryAllByText(/Fetching/i)).toHaveLength(0)
+  })
 })

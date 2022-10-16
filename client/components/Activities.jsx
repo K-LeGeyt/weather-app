@@ -6,7 +6,6 @@ import Loading from './Loading'
 
 export default function Activities(props) {
   const dispatch = useDispatch()
-  //const loading = useSelector((state) => state.loadingActivities)
   const { activities, loading, error } = useSelector(
     (state) => state.activities
   )

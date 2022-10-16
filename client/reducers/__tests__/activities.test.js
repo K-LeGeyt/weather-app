@@ -1,15 +1,38 @@
 import reducer from '../activities'
 import { setActivities } from '../../actions/dbActions'
 
-it('sets empty array as initial state', () => {
-  const newState = reducer(undefined, { type: 'INIT' })
-  expect(newState).toEqual([])
-})
+describe('activities reducer', () => {
+  const fakeState = {
+    activities: [],
+    loading: '',
+    error: ''
+  }
+  it('sets an initial state with activities as an empty array', () => {
+    const initialState = reducer(undefined, { type: 'INIT' })
 
-it('replaces state with SET_ACT_SUCCESS', () => {
-  const oldState = []
-  const activities = ['swim', 'bike', 'run']
+    expect(initialState.activities).toEqual([])
+  })
 
-  const newState = reducer(oldState, setActivities(activities))
-  expect(newState).toEqual(activities)
+  it('sets pending state with SET_ACT_PENDING', () => {
+    const newState = reducer(fakeState, { type: 'SET_ACT_PENDING' })
+
+    expect(newState.loading).toEqual(true)
+  })
+
+  it('replaces state with SET_ACT_SUCCESS', () => {
+    const activities = ['swim', 'bike', 'run']
+    const newState = reducer(fakeState, setActivities(activities))
+
+    expect(newState.activities).toEqual(activities)
+  })
+
+  it('sets error state with SET_ACT_ERROR', () => {
+    const errMessage = { error: 'error message' }
+    const errorState = reducer(fakeState, {
+      type: 'SET_ACT_ERROR',
+      payload: errMessage
+    })
+
+    expect(errorState.error).toEqual(errMessage.error)
+  })
 })

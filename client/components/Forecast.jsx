@@ -6,7 +6,6 @@ export default function Forecast() {
 
   const day1 = forecast?.forecast.forecastday[1]
   const day2 = forecast?.forecast.forecastday[2]
-  console.log(new Date(day1?.date).toDateString())
 
   return (
     <>
