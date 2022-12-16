@@ -44,14 +44,19 @@ export function fetchActivities(code) {
 }
 
 function getActivityType(code) {
-  if (code < 1010) {
+  if (code <= 1030) {
     return 'outdoor'
   }
-  if (code > 1010 && code < 1192) {
+  if (rainCode(code)) {
     return 'indoor'
   }
-  if (code > 1191 && code < 1283) {
-    return 'shelter'
-  }
-  return null
+  return 'shelter'
+}
+
+function rainCode(code) {
+  const rainCodes = [
+    1063, 1069, 1087, 1150, 1153, 1168, 1180, 1183, 1186, 1189, 1192, 1195,
+    1198, 1240, 1243, 1246, 1273, 1276
+  ]
+  return rainCodes.includes(code)
 }
