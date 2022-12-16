@@ -1,17 +1,20 @@
 # Weather App
 
 ## Getting Started
+You can view a live demo of this app on [heroku](https://weatherwhether.herokuapp.com/)
 
 ### API Key required
 
 If you are using this repo you will need to add a .env file with WEATHER_API_KEY="<insert-key-here>"
 [Sign up for key](https://www.weatherapi.com/signup.aspx)
 
-### From the command line
+### Installation
 
 ```
-npm install # to install dependencies
-npm run dev # to start the dev server
+npm install
+npm run knex migrate:latest 
+npm run knex seed:run
+npm run dev
 ```
 
 You can find the server running on [http://localhost:3000](http://localhost:3000).
