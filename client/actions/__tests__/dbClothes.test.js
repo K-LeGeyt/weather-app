@@ -44,6 +44,7 @@ describe('getCondition', () => {
     const moderate = getCondition(17)
     const pleasant = getCondition(23)
     const hot = getCondition(30)
+    const tooHot = getCondition(40)
 
     expect(belowFreezing).toEqual('below freezing')
     expect(freezing).toEqual('freezing')
@@ -51,5 +52,6 @@ describe('getCondition', () => {
     expect(moderate).toEqual('moderate')
     expect(pleasant).toEqual('pleasant')
     expect(hot).toEqual('hot')
+    expect(tooHot).toEqual('too hot')
   })
 })

@@ -62,8 +62,5 @@ export function getCondition(temp) {
   if (temp >= 25 && temp < 40) {
     return 'hot'
   }
-  if (temp >= 40) {
-    return 'too hot'
-  }
-  return null
+  return 'too hot'
 }

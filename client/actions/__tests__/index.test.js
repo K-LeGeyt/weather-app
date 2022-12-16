@@ -10,12 +10,13 @@ describe('fetchCityWeather', () => {
   it('dispatches weather action', () => {
     getWeather.mockReturnValue(Promise.resolve('It is always sunny'))
 
-    expect.assertions(4)
+    expect.assertions(5)
     return fetchCityWeather('philly')(fakeDispatch).then(() => {
-      expect(fakeDispatch).toHaveBeenCalledTimes(2)
+      expect(fakeDispatch).toHaveBeenCalledTimes(3)
       expect(fakeDispatch.mock.calls[0][0].type).toEqual('SET_LOADING')
-      expect(fakeDispatch.mock.calls[1][0].type).toEqual('SET_WEATHER')
-      expect(fakeDispatch.mock.calls[1][0].payload.weather).toEqual(
+      expect(fakeDispatch.mock.calls[1][0].type).toEqual('SET_ERROR')
+      expect(fakeDispatch.mock.calls[2][0].type).toEqual('SET_WEATHER')
+      expect(fakeDispatch.mock.calls[2][0].payload.weather).toEqual(
         'It is always sunny'
       )
       return null
@@ -26,8 +27,8 @@ describe('fetchCityWeather', () => {
 
     expect.assertions(2)
     return fetchCityWeather()(fakeDispatch).then(() => {
-      expect(fakeDispatch.mock.calls[1][0].type).toEqual('SET_ERROR')
-      expect(fakeDispatch.mock.calls[1][0].errMessage).toEqual('Error')
+      expect(fakeDispatch.mock.calls[2][0].type).toEqual('SET_ERROR')
+      expect(fakeDispatch.mock.calls[2][0].errMessage).toEqual('Error')
       return null
     })
   })

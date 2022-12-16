@@ -27,7 +27,7 @@ describe('fetchActivities', () => {
     getActivities.mockReturnValue(Promise.resolve(['read', 'cook', 'sleep']))
 
     expect.assertions(1)
-    return fetchActivities(1100)(fakeDispatch).then(() => {
+    return fetchActivities(1063)(fakeDispatch).then(() => {
       expect(fakeDispatch.mock.calls[1][0].payload.activities).toEqual([
         'read',
         'cook',
