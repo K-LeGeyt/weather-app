@@ -49,6 +49,7 @@ export function forecastError(error) {
 export function fetchCityWeather(city) {
   return (dispatch) => {
     dispatch(setLoading())
+    dispatch(setError(null))
     return getWeather(city)
       .then((weather) => {
         dispatch(setWeather(weather))
