@@ -19,13 +19,21 @@ export default function Clothes(props) {
         <Loading />
       ) : error ? (
         <>
-          <p>Not sure what your should wear but definitely something.</p>
+          <p>Not sure what you should wear but definitely something.</p>
           <p className="error">{error}</p>
         </>
       ) : (
         <p data-testid="clothes">
-          It&apos;s <strong>{clothes?.condition}</strong> out there so wear{' '}
-          <strong>{clothes?.layers}</strong> of clothing.
+          It&apos;s <strong>{clothes?.condition}</strong> out there so
+          {clothes?.condition == 'below freezing' ||
+          clothes?.condition == 'too hot' ? (
+            <strong> {clothes?.layers}</strong>
+          ) : (
+            <>
+              {' '}
+              wear <strong>{clothes?.layers}</strong> of clothing.
+            </>
+          )}
         </p>
       )}
     </div>
