@@ -83,4 +83,26 @@ describe('<Clothes />', () => {
     )
     expect(screen.getByTestId('clothes').innerHTML).toContain('global warming')
   })
+  it('changes clothing suggestion display on condition of too hot', () => {
+    fakeStore.getState.mockReturnValue({
+      clothes: {
+        clothes: {
+          id: 101,
+          layers: 'find aircon',
+          condition: 'too hot'
+        },
+        loading: false,
+        error: null
+      }
+    })
+
+    render(
+      <Provider store={fakeStore}>
+        <Clothes />
+      </Provider>
+    )
+
+    expect(screen.getByTestId('clothes').innerHTML).toContain('find aircon')
+    expect(screen.getByTestId('clothes').innerHTML).toContain('too hot')
+  })
 })

@@ -5,6 +5,7 @@ const db = require('../db')
 
 beforeAll(() => testDb.migrate.latest())
 beforeEach(() => testDb.seed.run())
+afterAll(() => testDb.migrate.rollback())
 
 describe('getActivities', () => {
   it('returns a list of activities based on type', () => {
