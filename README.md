@@ -1,7 +1,7 @@
 # Weather App
 
 ## Getting Started
-You can view a live demo of this app on [heroku](https://weatherwhether.herokuapp.com/)
+You can watch a live demo of this app on [YouTube](https://youtube.com/shorts/jiO7qibmOx8?feature=share)
 
 ### API Key required
 
